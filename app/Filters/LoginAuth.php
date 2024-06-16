@@ -41,7 +41,7 @@ class LoginAuth implements FilterInterface
                 $result = $this->sessionLoginServices->findSessionId($cookie);
 
                 // when cookie expired
-                if($currentTime>$result['date_expire']){
+                if($currentTime>$result['date_expired']){
 
                     $this->myLogger->debug('cookie date expired',
                         [

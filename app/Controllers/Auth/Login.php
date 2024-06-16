@@ -48,11 +48,20 @@ class Login extends BaseController
             $result = $this->authServices->login($this->user);
 
             // save session to database
-            $this->sessionLoginServices->saveCookie(UuidGenerator::generateUUID(20),$result['id']);
+            $cookieToken= UuidGenerator::generateUUID(20);
+            $this->sessionLoginServices->saveCookie($cookieToken,$result['id']);
 
             $this->myLogger->info('success login user ',['username'=>$this->user->username]);
 
-            return redirect()->to('admin/articles');
+            // redirect to dashboard admin and setting the cookie with base 64
+            return redirect()
+                ->to(base_url('admin/articles'))
+                ->setCookie
+                (
+                    "authorization",
+                    $cookieToken,
+                    60*60*48 // 60 second * 60 * 48
+                );
 
         } catch (ValidationExceptions $e) {
             return redirect()

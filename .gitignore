@@ -18,3 +18,4 @@ LICENSE
 writable/session/**
 writable/debugbar/**
 writable/uploads/**
+writable/logs/**

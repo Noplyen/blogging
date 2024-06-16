@@ -3,10 +3,14 @@
 namespace App\Services;
 
 use App\Entities\SessionLogin;
+use App\Exceptions\FailedDeleteDataExceptions;
 use App\Exceptions\FailedInsertingDataExceptions;
 use App\Exceptions\SessionNotFoundExceptions;
+use App\Helpers\LoggerContext;
 use App\Libraries\AppLogger;
 use App\Models\SessionLoginModel;
+use CodeIgniter\Database\Exceptions\DatabaseException;
+use CodeIgniter\Exceptions\PageNotFoundException;
 use DateTime;
 use DateTimeZone;
 use Exception;
@@ -63,6 +67,11 @@ class SessionLoginServices
         return $result;
     }
 
+    /**
+     * @param $sessionId
+     * @return array
+     * @throws SessionNotFoundExceptions when session not found
+     */
     public function findSessionId($sessionId): array
     {
         $result = $this->sessionLoginModel
@@ -73,5 +82,25 @@ class SessionLoginServices
         }
 
         return $result;
+    }
+
+    /**
+     * @param $cookieAuth
+     * @return void
+     * @throws SessionNotFoundExceptions when session data doesnt exist
+     *
+     */
+    public function deleteSession($cookieAuth): void
+    {
+        try{
+            $this->findSessionId($cookieAuth);
+
+            $this->sessionLoginModel
+                ->where('session_id',$cookieAuth)
+                ->delete();
+
+        }catch (DatabaseException $e){
+           throw new FailedDeleteDataExceptions('failed to delete session login',$e);
+        }
     }
 }
