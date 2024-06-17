@@ -22,6 +22,6 @@ class ArticleController extends BaseController
 
     public function index()
     {
-        return 'layout/reader/reader';
+        return 'layout/Reader/Reader';
     }
 }

@@ -5,7 +5,7 @@ use CodeIgniter\Router\RouteCollection;
 /**
  * @var RouteCollection $routes
  */
-$routes->get('/', 'Home::index');
+$routes->get('/tes', 'Home::index');
 
 $routes->set404Override(function (){
     return view('errors/custom-error/error_404');
@@ -19,9 +19,9 @@ $routes->group('/error',['namespace'=>'App\Controllers\ErrorPages'],
     });
 
 // READER
-$routes->group('/',['namespace'=>'App\Controllers\User'],function ($routes){
-    $routes->get('', 'UserContent::index');
-    $routes->get('post/(:any)', 'UserContent::content/$1');
+$routes->group('/',['namespace'=>'App\Controllers\Reader'],function ($routes){
+    $routes->get('', 'ReaderContent::index');
+    $routes->get('post/(:any)', 'ReaderContent::contentArticle/$1');
     $routes->get('kategori/(:any)', 'UserContent::categoryContent/$1');
     $routes->get('profile', 'UserContent::profile');
 });

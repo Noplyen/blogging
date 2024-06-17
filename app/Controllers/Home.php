@@ -10,6 +10,6 @@ class Home extends BaseController
 {
     public function index()
     {
-//        return view('total');
+        return view('user/reader/read_article');
     }
 }

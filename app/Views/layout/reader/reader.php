@@ -1,22 +1,24 @@
 <!doctype html>
-<html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
+    <meta name="description" id="meta-description-value" content="">
+    <meta name="keywords" id="meta-tag-value" content="">
+    <meta name="author" id="meta-author-value" content="">
+    <title>
+        <?= $this->renderSection('title') ?>
+    </title>
 </head>
-<body>
+<body >
 
 <!--navbar-->
 <?= $this->include('layout/layout-cell/reader_navbar') ?>
 <!--navbar-->
 
     <div class="mx-auto max-w-7xl px-6 lg:px-8">
-        <div class="mx-auto max-w-2xl lg:mx-0 py-3">
-            <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">From the blog</h2>
-            <p class="mt-2 text-lg leading-8 text-gray-600">Learn how to grow your business with our expert advice.</p>
-        </div>
-        <hr class="mx-auto my-3" >
+        <?= $this->renderSection('text-slate')?>
 
             <!-- List Article -->
         <?= $this->renderSection('content') ?>
