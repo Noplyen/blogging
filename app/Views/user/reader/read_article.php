@@ -47,4 +47,21 @@
     <?php endif;?>
 
 </div>
+
+<?php if (!empty($article)){
+    $metaDescription    =   $article['meta_description'];
+    $metaTag            =   $article['meta_tag'];
+    $metaAuthor         =   $article['user_name'];
+
+    echo <<<script
+        <script>
+            var valueDescription = "{$metaDescription}";
+            var valueTag = "{$metaTag}";
+            var valueAuthor = "{$metaAuthor}";
+            document.getElementById("meta-description-value").setAttribute("content", valueDescription);
+            document.getElementById("meta-tag-value").setAttribute("content",valueTag);
+            document.getElementById("meta-author-value").setAttribute("content",valueAuthor);
+        </script>
+     script;
+} ?>
 <?= $this->endSection('content') ?>
