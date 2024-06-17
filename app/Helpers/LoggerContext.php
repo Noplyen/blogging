@@ -4,15 +4,15 @@ namespace App\Helpers;
 
 class LoggerContext
 {
-    public static function setLoggerContext(string $error,
+    public static function setLoggerContext(string $errorMessage,
                                             ?array $trace=null,
                                             ?array $moreData=null): array
     {
         return
             [
-                'data'=>$moreData,
-                'error'=>$error,
-                'trace'=>self::simpleTrace($trace)
+                'message'=>$errorMessage,
+                'trace'=>self::simpleTrace($trace),
+                'more-data'=>$moreData
             ];
     }
 

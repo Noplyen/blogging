@@ -9,7 +9,7 @@ class DataNotFoundExceptions extends RuntimeException
 
     public function __construct(string $message,... $args)
     {
-        $messageFormat = sprintf($message,$args);
+        $messageFormat = sprintf($message,...$args);
         parent::__construct($messageFormat);
     }
 }
