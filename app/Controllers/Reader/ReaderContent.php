@@ -72,4 +72,33 @@ class ReaderContent extends BaseController
     }
 
 
+    public function categoryContent($category)
+    {
+        try{
+            $result = $this
+                        ->readerContentServices
+                        ->getArticleByCategory($category);
+
+            $data =
+                [
+                    "list_article"=>$result['article'],
+                    "pager"=>$result['pager']
+                ];
+
+            return view('user/reader/home',$data);
+
+        } catch (DataNotFoundExceptions $exception) {
+
+            $c = LoggerContext::setLoggerContext
+            (
+                $exception->getMessage(),
+                $exception->getTrace()
+            );
+            $this->myLogger->error('failed to serve content article by category',$c);
+        }
+
+        return redirect()->to(base_url().'error/404');
+
+    }
+
 }

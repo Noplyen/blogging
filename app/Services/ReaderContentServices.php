@@ -69,4 +69,25 @@ class ReaderContentServices
 
         return $result;
     }
+
+    public function getArticleByCategory(string $category): array
+    {
+        $result = $this->articleModel
+            ->select('article.* , category.* , users.* , detail_article.*')
+            ->select('users.id as user_id , article.id as article_id')
+            ->select('category.id as category_id , users.name as user_name')
+            ->select('category.name as category_name')
+            ->join('detail_article','detail_article.article_id = article.id')
+            ->join('category','category.id = article.category_id')
+            ->join('users','detail_article.user_id = users.id')
+            ->where('detail_article.publish_status',true)
+            ->where('category.name',$category)
+            ->paginate(10);
+
+        if(empty($result)){
+            throw new DataNotFoundExceptions('data article not found searching by category %s',$category);
+        }
+
+        return ['article'=>$result,'pager'=>$this->articleModel->pager];
+    }
 }

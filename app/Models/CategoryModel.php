@@ -16,4 +16,15 @@ class CategoryModel extends Model
             "name","id"
         ];
 
+    /**
+     * checking a record on table
+     * @return bool true if empty
+     */
+    public function isCategoryTableEmpty(): bool
+    {
+        if(empty($this->findAll())){
+            return true;
+        }
+        return false;
+    }
 }

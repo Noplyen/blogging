@@ -22,7 +22,7 @@ $routes->group('/error',['namespace'=>'App\Controllers\ErrorPages'],
 $routes->group('/',['namespace'=>'App\Controllers\Reader'],function ($routes){
     $routes->get('', 'ReaderContent::index');
     $routes->get('post/(:any)', 'ReaderContent::contentArticle/$1');
-    $routes->get('kategori/(:any)', 'UserContent::categoryContent/$1');
+    $routes->get('category/(:any)', 'ReaderContent::categoryContent/$1');
     $routes->get('profile', 'UserContent::profile');
 });
 
