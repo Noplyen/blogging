@@ -101,4 +101,25 @@ class ReaderContent extends BaseController
 
     }
 
+    public function profile()
+    {
+        try {
+            $results = $this->readerContentServices->getAdminProfiles();
+
+            $data =['user_data'=>$results];
+
+            return view('user/reader/profile',$data );
+
+        } catch (DataNotFoundExceptions $e) {
+            $context = LoggerContext::setLoggerContext
+            (
+                $e->getMessage(),
+                $e->getTrace()
+            );
+
+            $this->myLogger->error('failed to display user profile content',$context);
+
+            return redirect()->to(base_url());
+        }
+    }
 }

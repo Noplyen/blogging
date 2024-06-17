@@ -7,14 +7,14 @@ use CodeIgniter\Model;
 
 class MediaSocialModel extends Model
 {
-    protected $table            = 'social_media';
+    protected $table            = 'media_social';
     protected $primaryKey       = 'id';
     protected $useAutoIncrement = true;
-    protected $returnType       = \App\Entities\SocialMedia::class;
+    protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $allowedFields    =
         [
             "platform","link",
-            "user_id"
+            "user_id","id"
         ];
 }

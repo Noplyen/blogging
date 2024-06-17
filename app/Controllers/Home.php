@@ -10,6 +10,6 @@ class Home extends BaseController
 {
     public function index()
     {
-        return view('user/reader/read_article');
+        return view('user/reader/profile');
     }
 }

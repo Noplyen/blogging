@@ -2,8 +2,9 @@
 
 <?= $this->section('text-slate') ?>
 <div class="mx-auto max-w-2xl lg:mx-0 py-3">
-    <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">writeLy blog</h2>
-    <p class="mt-2 text-lg leading-8 text-gray-600">Berbagi pengetahuan dari sejarah pembelajaran</p>
+    <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Writely-Blog</h2>
+    <p class="mt-2 text-lg leading-8 text-gray-600"
+    >Berbagi pengetahuan dari sejarah pembelajaran</p>
 </div>
 <?= $this->endSection('text-slate') ?>
 
@@ -33,7 +34,7 @@
             ><?= $artikel['date_create'] ?></time>
 
             <!--  category  -->
-            <a href="#" class="relative z-10 rounded-full bg-gray-50 px-3 py-1.5 font-medium text-gray-600 hover:bg-gray-100"
+            <a href="<?= base_url().'category/'.$artikel['category_name']?>" class="relative z-10 rounded-full bg-gray-50 px-3 py-1.5 font-medium text-gray-600 hover:bg-gray-100"
             ><?= $artikel['category_name'] ?></a>
 
         </div>

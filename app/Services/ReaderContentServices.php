@@ -5,17 +5,22 @@ namespace App\Services;
 use App\Exceptions\DataNotFoundExceptions;
 use App\Libraries\AppLogger;
 use App\Models\ArticleModel;
+use App\Models\MediaSocialModel;
+use App\Models\UserModel;
 use Monolog\Logger;
 
 class ReaderContentServices
 {
     private Logger $myLogger;
     private ArticleModel $articleModel;
-
+    private UserModel $userModel;
+    private MediaSocialModel $socialMediaModel;
     public function __construct()
     {
         $this->myLogger = AppLogger::LoggerCreations(ReaderContentServices::class);
+        $this->socialMediaModel = new MediaSocialModel();
         $this->articleModel = new ArticleModel();
+        $this->userModel    = new UserModel();
     }
 
     /**
@@ -90,4 +95,31 @@ class ReaderContentServices
 
         return ['article'=>$result,'pager'=>$this->articleModel->pager];
     }
+
+    public function getAdminProfiles()
+    {
+        $data = [];
+        $result = $this->userModel->asArray()->findAll();
+
+        if (empty($result)) {
+            throw new DataNotFoundExceptions('No records found in users');
+        }
+
+        foreach ($result as &$user) {
+            $resultMediaSocial = $this->socialMediaModel
+                ->where('user_id', $user['id'])
+                ->asArray()->findAll();
+
+            if (!empty($resultMediaSocial)) {
+                $user['media_social'] = $resultMediaSocial;
+            } else {
+                $user['media_social'] = [];
+            }
+        }
+
+        $data['users'] = $result;
+
+        return $data;
+    }
+
 }

@@ -7,6 +7,8 @@
     <meta name="description" id="meta-description-value" content="">
     <meta name="keywords" id="meta-tag-value" content="">
     <meta name="author" id="meta-author-value" content="">
+    <link rel="icon" href="<?=base_url('/images/resource/icon.ico')?>" type="ico">
+
     <title>
         <?= $this->renderSection('title') ?>
     </title>
