@@ -76,7 +76,7 @@ $routes->group('/admin/categories',['filter'=>'auth'],function ($routes) {
     });
 
     // action
-    $routes->group('', ['filter'=>'csrf','namespace' => 'App\Controllers\Admin\Action'],function ($routes) {
+    $routes->group('', ['namespace' => 'App\Controllers\Admin\Action'],function ($routes) {
         $routes->post('','CategoryController::index');
         $routes->put('update/(:any)','CategoryController::updateCategory/$1');
         $routes->delete('delete/(:any)','CategoryController::deleteCategory/$1');
