@@ -48,3 +48,11 @@ maka dari itu selalu gunakan PHP doc, dan berikan `@throws`
      * @throws FailedInsertingDataExceptions error when save session
 */
 ```
+
+Pada beberapa exception class saya memberikan message 
+format yang digunakan untuk memudahkan dalam pemberian 
+informasi error. Silahkan baca lebih terkait `messageFormat`
+
+```php
+ throw new DataNotFoundExceptions("data category not found with id %s",$id);
+```
