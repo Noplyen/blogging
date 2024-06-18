@@ -31,4 +31,9 @@ class CategoryServices
 
         return $this->categoryModel->asArray()->findAll();
     }
+
+    public function countCategory()
+    {
+        return $this->categoryModel->countAllResults();
+    }
 }

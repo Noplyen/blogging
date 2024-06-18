@@ -55,6 +55,9 @@ $routes->group('/user',['filter'=>'csrf'],
         $routes->post('register', 'Auth\Register::postRegister');
 });
 
+// MAIN ADMIN
+$routes->get('/admin','Admin\MainDashboard::index',['filter'=>'auth']);
+
 // IMAGE
 $routes->group('/admin/images',['filter'=>'auth','namespace'=>'App\Controllers\Admin'],function ($routes) {
     $routes->get('','ImageController::index');

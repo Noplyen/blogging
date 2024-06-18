@@ -55,7 +55,7 @@ class Login extends BaseController
 
             // redirect to dashboard admin and setting the cookie with base 64
             return redirect()
-                ->to(base_url('admin/articles'))
+                ->to(base_url('admin'))
                 ->setCookie
                 (
                     "authorization",
