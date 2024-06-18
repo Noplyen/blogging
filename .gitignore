@@ -5,7 +5,10 @@ HELP.md
 *.iws
 *.iml
 *.ipr
+*.png
+*.jpg
 
+build
 ### VS Code ###
 .vscode/
 
