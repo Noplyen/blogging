@@ -64,4 +64,10 @@
         </script>
      script;
 } ?>
+
+<script>
+    var figure = document.querySelector('figure');
+
+    figure.className += ' flex justify-center items-center';
+</script>
 <?= $this->endSection('content') ?>
