@@ -12,7 +12,7 @@
         <p class="text-center text-lg font-bold"><span>form tambah data</span></p>
 
 <!--    Form tambah data    -->
-        <form action="<?= base_url().'admin/categories'?>" method="post">
+        <form action="<?= base_url('admin/categories')?>" method="post">
             <div>
                 <label for="name" class="block mb-2 text-base  text-gray-900 dark:text-white"
                 >category name</label>

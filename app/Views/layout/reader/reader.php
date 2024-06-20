@@ -13,7 +13,7 @@
         <?= $this->renderSection('title') ?>
     </title>
 </head>
-<body >
+<body class="">
 
 <!--navbar-->
 <?= $this->include('layout/layout-cell/reader_navbar') ?>

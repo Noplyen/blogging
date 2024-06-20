@@ -172,4 +172,18 @@ class CategoryServices
         }
     }
 
+    /**
+     * @throws DataNotFoundExceptions empty record data category
+     */
+    public function getAllKategori(): array
+    {
+        $result = $this->isCategoryTableEmpty();
+
+        if($result){
+            throw new DataNotFoundExceptions('empty data category');
+        }
+
+        return $this->categoryModel->findAll();
+    }
+
 }

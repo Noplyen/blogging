@@ -8,8 +8,29 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
+
+    <!--    ckeditor style-->
+    <style>
+        #container-texteditor {
+            /*width: 300px;*/
+            margin: 20px auto;
+        }
+        .ck-editor__editable[role="textbox"] {
+            /* Editing area */
+            height: 300px;
+            overflow-y: auto;
+        }
+        .ck-content .image {
+            /* Block images */
+            max-width: 80%;
+            margin: 20px auto;
+        }
+    </style>
+    <!--    ckeditor style-->
+
+
 </head>
-<body class="bg-gray-100 h-screen flex">
+<body class="bg-gray-100 min-h-screen max-h-min flex">
 <!-- Sidebar -->
 <aside class="w-64 bg-blue-800 text-white flex flex-col">
     <div class="p-4 text-2xl font-bold">Sidebar</div>

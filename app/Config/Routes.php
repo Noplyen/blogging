@@ -92,7 +92,7 @@ $routes->group('/admin/articles',['filter'=>'auth'], function ($routes) {
         $routes->get('', 'ArticleController::index');
         $routes->get('list', 'ArticleController::listArticle');
         $routes->get('preview/(:any)', 'ArticleController::previewArticle/$1');
-        $routes->get('update/(:any)', 'ArticleController::updateArticle/$1');
+        $routes->get('(:any)', 'ArticleController::updateArticle/$1');
 
     });
 
