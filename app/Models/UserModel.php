@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Entities\User;
+use App\Exceptions\DataNotFoundExceptions;
 use App\Exceptions\UserNotFoundExceptions;
 use CodeIgniter\Model;
 

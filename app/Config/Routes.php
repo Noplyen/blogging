@@ -31,7 +31,6 @@ $routes->group('/admin/profiles',['filter'=>'auth','namespace'=>'App\Controllers
     function ($routes){
         $routes->get('','UserProfiles::index');
         $routes->put('','UserProfiles::profileUpdate');
-        $routes->put('bio','UserProfiles::bioUpdate');
 });
 
 // USER MEDIA SOCIAL
