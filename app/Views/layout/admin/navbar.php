@@ -9,4 +9,6 @@
     >List Article</a>
     <a href="<?= base_url('admin/profiles')?>" class="p-2 hover:bg-blue-700 rounded focus:outline-none focus:bg-blue-700"
     >Profile</a>
+    <a href="<?= base_url('admin/social')?>" class="p-2 hover:bg-blue-700 rounded focus:outline-none focus:bg-blue-700"
+    >Media Social</a>
 </nav>

@@ -46,7 +46,7 @@ class AuthServices
 
                 $user->password   = PasswordEncryption::encryptPassword($user->password);
                 $user->id         = UuidGenerator::generateUUID(30);
-                $user->url_picture = 'https://icons8.com/icon/7819/male-user';
+                $user->url_picture = base_url('images/resource/wojak_studio.png');
 
                 $this->userModel->save($user);
 

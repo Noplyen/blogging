@@ -34,11 +34,11 @@ $routes->group('/admin/profiles',['filter'=>'auth','namespace'=>'App\Controllers
 });
 
 // USER MEDIA SOCIAL
-$routes->group('/admin/media-socials',['filter'=>['auth','csrf'],'namespace'=>'App\Controllers\Admin'],
+$routes->group('/admin/social',['filter'=>'auth','namespace'=>'App\Controllers\Admin'],
     function ($routes){
-        $routes->get('','UserSocialMedia::index');
-        $routes->post('','UserSocialMedia::mediaSocialCreate');
-        $routes->delete('','UserSocialMedia::mediaSocialDelete');
+        $routes->get('','MediaSocialController::index');
+        $routes->post('','MediaSocialController::create');
+        $routes->delete('','MediaSocialController::delete');
 });
 
 // AUTHENTICATION
