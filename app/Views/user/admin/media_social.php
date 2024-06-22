@@ -9,7 +9,7 @@
         <form action="<?= base_url('admin/social')?>" method="post"
               class="flex gap-x-4">
 
-            <input type="hidden" name="user_id" value="<?=!empty($user_media_social)?$user_media_social[0]['user_id']:""?>">
+            <input type="hidden" name="user_id" value="<?= $user ?? "x" ?>">
 
             <div class="flex-none w-34">
                 <label for="name" class="block mb-2 text-base  text-gray-900 dark:text-white"
@@ -62,22 +62,22 @@
 
             <!--   DATA LOOPING     -->
             <?php if (!empty($user_media_social)) : ?>
-                <?php foreach ($user_media_social as $index =>$user) : ?>
+                <?php foreach ($user_media_social as $index =>$item) : ?>
                     <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
                         <td class="px-6 py-4">
                             <?= $index+1 ?>
                         </td>
                         <td class="px-6 py-4">
-                            <?= $user['platform'] ?>
+                            <?= $item['platform'] ?>
                         </td>
                         <td class="px-6 py-4">
-                            <?= $user['link'] ?>
+                            <?= $item['link'] ?>
                         </td>
                         <td class="px-6 py-4 text-left">
                             <form action="<?= base_url('admin/social')?>" method="post">
                                 <input type="hidden" name="_method" value="DELETE">
-                                <input type="hidden" name="id" value="<?= $user['id']?>">
-                                <input type="hidden" name="link" value="<?= $user['link']?>">
+                                <input type="hidden" name="id" value="<?= $item['id']?>">
+                                <input type="hidden" name="link" value="<?= $item['link']?>">
                                 <button type="submit" class="bg-red-500 text-white px-4 py-2 rounded"
                                 >delete</button>
                             </form>

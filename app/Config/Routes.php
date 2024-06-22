@@ -5,7 +5,7 @@ use CodeIgniter\Router\RouteCollection;
 /**
  * @var RouteCollection $routes
  */
-$routes->get('/tes', 'Home::index');
+$routes->get('/hello', 'Home::index');
 
 $routes->set404Override(function (){
     return view('errors/custom-error/error_404');

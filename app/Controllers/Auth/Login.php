@@ -53,6 +53,8 @@ class Login extends BaseController
 
             $this->myLogger->info('success login user ',['username'=>$this->user->username]);
 
+            $this->sessionLoginServices->clearSessionExpired();
+
             // redirect to dashboard admin and setting the cookie with base 64
             return redirect()
                 ->to(base_url('admin'))

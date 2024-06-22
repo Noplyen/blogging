@@ -103,4 +103,12 @@ class SessionLoginServices
            throw new FailedDeleteDataExceptions('failed to delete session login',$e);
         }
     }
+
+    public function clearSessionExpired()
+    {
+        $dateTime = new DateTime('now', new DateTimeZone('Asia/Jakarta'));
+        $currentTime = $dateTime->format('Y-m-d');
+
+        $this->sessionLoginModel->where('date_expired <',$currentTime)->delete();
+    }
 }
