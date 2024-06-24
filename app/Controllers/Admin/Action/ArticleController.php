@@ -82,6 +82,8 @@ class ArticleController extends BaseController
             case 'delete':
                 $this->deleteArticle($idArticle);
                 break;
+            case 'draft':
+                break;
             case 'publish':
                 try{
 
