@@ -1,6 +1,6 @@
 <div class="max-w-2xl mx-auto my-3">
 
-    <nav class="border-gray-200">
+    <nav>
         <div class="container mx-auto flex flex-wrap items-center justify-between">
             <a href="<?=base_url()?>" class="flex">
 
@@ -52,4 +52,3 @@
         </div>
     </nav>
 </div>
-<hr>

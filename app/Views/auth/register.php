@@ -56,6 +56,7 @@
                 <div class="mt-2">
                     <input id="username"
                            name="username"
+                           pattern="[A-Za-z0-9]+"
                            type="text"
                            autocomplete="off"
                            required

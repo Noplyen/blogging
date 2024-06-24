@@ -32,7 +32,7 @@
 </head>
 <body class="bg-gray-100 min-h-screen max-h-min flex">
 <!-- Sidebar -->
-<aside class="w-64 bg-blue-800 text-white flex flex-col">
+<aside class="w-56 bg-blue-800 text-white flex flex-col">
     <div class="p-4 text-2xl font-bold">Sidebar</div>
 
     <!--navbar-->

@@ -1,4 +1,4 @@
-<nav class="flex flex-col p-4 space-y-2">
+<nav class="flex flex-col p-4 space-y-2 w-56">
     <a href="<?= base_url('admin')?>" class="p-2 hover:bg-blue-700 rounded focus:outline-none focus:bg-blue-700"
     >Home</a>
     <a href="<?= base_url('admin/categories')?>" class="p-2 hover:bg-blue-700 rounded focus:outline-none focus:bg-blue-700"

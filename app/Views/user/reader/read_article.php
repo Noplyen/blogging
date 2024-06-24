@@ -8,7 +8,13 @@
 
 
 <?= $this->section('content') ?>
-<div class="md:container md:mx-auto md:my-5 h-screen">
+
+<!--DIV DIBAWAH INI MERUPAKAN ATURAN UNTUK CONTAINER VIEW-->
+<!--ini karena template read article dan home sama -->
+<!-- lalu ukuran agar berbeda maka div ini ada di setiap section content -->
+<div class="mx-auto max-w-6xl px-6 lg:px-8">
+
+<div class="md:container md:mx-auto md:my-5">
 
     <?php if (!empty($article)) : ?>
 
@@ -20,7 +26,7 @@
 
         <!--  author  -->
         <a href="#" >
-            <span class="font-medium text-gray-400">
+            <span class="font-medium text-gray-500">
                 <span>author : </span>
                 <span><?= $article['user_name'] ?></span>
             </span>
@@ -29,7 +35,7 @@
 
         <!--  category  -->
         <a href="#">
-            <span class="font-medium text-gray-400">
+            <span class="font-medium text-gray-500">
                 <span>category : </span>
                 <span><?= $article['category_name'] ?></span>
             </span>
@@ -39,13 +45,14 @@
 
     <!--  content  -->
     <section class="my-4">
-        <span class="font-normal">
+        <span class="font-normal overscroll-x-auto">
             <?= $article['content'] ?>
         </span>
     </section>
 
     <?php endif;?>
 
+</div>
 </div>
 
 <?php if (!empty($article)){
@@ -70,4 +77,15 @@
 
     figure.className += ' flex justify-center items-center';
 </script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        let images = document.querySelectorAll('p > a');
+
+        images.forEach(image => {
+            image.className += 'text-blue-600 dark:text-blue-500 hover:underline';
+
+        });
+    });
+</script>
+
 <?= $this->endSection('content') ?>

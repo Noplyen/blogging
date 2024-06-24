@@ -1,10 +1,18 @@
 <?= $this->extend('layout/reader/reader') ?>
 
 <?= $this->section('text-slate') ?>
+
+<!--DIV DIBAWAH INI MERUPAKAN ATURAN UNTUK CONTAINER VIEW-->
+<!--ini karena template read article dan home sama -->
+<!-- lalu ukuran agar berbeda maka div ini ada di setiap section content -->
+<div class="mx-auto max-w-7xl px-6 lg:px-8">
+
 <div class="mx-auto max-w-2xl lg:mx-0 py-3">
-    <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Writely-Blog</h2>
+    <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl"
+    >Writely-Blog</h2>
     <p class="mt-2 text-lg leading-8 text-gray-600"
     >Berbagi pengetahuan dari sejarah pembelajaran</p>
+</div>
 </div>
 <?= $this->endSection('text-slate') ?>
 
@@ -15,6 +23,10 @@
 
 
 <?= $this->section('content') ?>
+<!--DIV DIBAWAH INI MERUPAKAN ATURAN UNTUK CONTAINER VIEW-->
+<!--ini karena template read article dan home sama -->
+<!-- lalu ukuran agar berbeda maka div ini ada di setiap section content -->
+<div class="mx-auto min-h-screen max-w-7xl px-6 lg:px-8">
 
 <div class="mx-auto mt-10 grid
             max-w-2xl grid-cols-1
@@ -79,5 +91,6 @@
     <?php endif ;?>
 
     <!-- More posts... -->
+</div>
 </div>
 <?= $this->endSection('content') ?>

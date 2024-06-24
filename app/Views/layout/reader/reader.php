@@ -12,21 +12,39 @@
     <title>
         <?= $this->renderSection('title') ?>
     </title>
+
+    <style>
+        pre {
+            width: 100%;
+            overflow-x: auto;
+            padding: 10px;
+            background-color: #f5f5f5;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        p > code{
+            padding: 3px 5px;
+            background-color: #f5f5f5;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            display: inline-block;
+        }
+    </style>
 </head>
-<body class="">
+<body>
 
 <!--navbar-->
+<div class="border border-slate-300 border-x-0 border-t-0 ">
 <?= $this->include('layout/layout-cell/reader_navbar') ?>
+</div>
 <!--navbar-->
 
-    <div class="mx-auto max-w-7xl px-6 lg:px-8">
         <?= $this->renderSection('text-slate')?>
 
             <!-- List Article -->
         <?= $this->renderSection('content') ?>
             <!-- List Article -->
 
-    </div>
 
 <!--footer-->
 <?= $this->include('layout/layout-cell/reader_footer') ?>

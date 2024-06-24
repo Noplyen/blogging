@@ -2,7 +2,7 @@
 if(session()->getFlashdata("message") !== NULL) {
     $message = session()->getFlashdata('message');
     echo <<<HTML
-        <div class="p-4 mb-4 text-sm text-yellow-800 rounded-lg bg-yellow-50 dark:bg-gray-800 dark:text-yellow-300" role="alert">
+        <div class="p-4 mb-4 text-sm text-blue-800 rounded-lg bg-blue-50 dark:bg-gray-800 dark:text-blue-400" role="alert">
             <span class="font-medium">Info!</span> $message
         </div>
         HTML;
@@ -27,7 +27,7 @@ if(session()->getFlashdata("message") !== NULL) {
 }elseif(!empty($message)){
         $messages = $message;
         echo <<<HTML
-        <div class="p-4 mb-4 text-sm text-yellow-800 rounded-lg bg-yellow-50 dark:bg-gray-800 dark:text-yellow-300" role="alert">
+        <div class="p-4 mb-4 text-sm text-blue-800 rounded-lg bg-blue-50 dark:bg-gray-800 dark:text-blue-400" role="alert">
             <span class="font-medium">Info!</span> $message
         </div>
         HTML;
