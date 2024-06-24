@@ -92,5 +92,8 @@
 
     <!-- More posts... -->
 </div>
+    <?php if(!empty($pager)):?>
+        <?= $pager->links('default','custom') ?>
+    <?php endif;?>
 </div>
 <?= $this->endSection('content') ?>
