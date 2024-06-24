@@ -22,13 +22,26 @@ class CategoryController extends BaseController
 
     public function index()
     {
+        $categoryList = [];
 
         try {
             $result = $this->categoryServices->getCategoryUsedByArticle();
 
+            foreach ($result as $value) {
+                // mengambil data category_name pada array categoryList
+                // dan menyimpan di categoryName
+                $categoryNames = array_column($categoryList, 'category_name');
+
+                // mengecek apakah data $value['category_name'] ada pada categoryNames
+                // jika tidak maka category list akan ditambah data $value
+                if (!in_array($value['category_name'], $categoryNames)) {
+                    $categoryList[] = $value;
+                }
+            }
+
             $data =
                 [
-                    "category_list"=>$result
+                    "category_list"=>$categoryList
                 ];
 
             return view("user/admin/category",$data);
