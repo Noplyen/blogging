@@ -1,7 +1,10 @@
 <?php
 namespace App\Libraries;
+use DateTime;
+use DateTimeZone;
 use Monolog\Formatter\JsonFormatter;
 use Monolog\Formatter\LineFormatter;
+use Monolog\Handler\RotatingFileHandler;
 use Monolog\Handler\StreamHandler;
 use Monolog\Logger;
 class AppLogger
@@ -16,21 +19,27 @@ class AppLogger
     {
         $logger = new Logger(name: strval($class));
 
-//        WRITEPATH."customLog/logapp.log" tulis file
-//        "php://stderr" console
-//
 
-//        $streamHandlerLevelError  = new StreamHandler("php://stderr",Logger::ERROR);
-//        $streamHandlerlevelNotice  = new StreamHandler("php://stderr",Logger::NOTICE);
+//        PATH LOG = WRITEPATH -> wriable folder
+
         $output = "%level_name% | %datetime% > %message% | %context% %extra%\n";
-        $dateFormat = "Y-n-j, g:i a";
+        $dateTime = new DateTime('now', new DateTimeZone('Asia/Jakarta'));
+        $currentTime = $dateTime->format('Y-m-d ~ H:i');
 
-        $streamHandler  = new StreamHandler("php://stderr");
-//        $formatter      = new JsonFormatter();
-        $formatter      = new LineFormatter($output,$dateFormat,true,true);
-        $streamHandler->setFormatter($formatter);
+        // line format
+        $formatter      = new LineFormatter($output,$currentTime,true,true);
+        // json format
+        //  $formatter      = new JsonFormatter(); format json
 
-        $logger->pushHandler($streamHandler);
+        // console
+//        $streamHandler  = new StreamHandler("php://stderr");
+//        $streamHandler->setFormatter($formatter);
+
+        // file
+        $rotatingFileHandler = new RotatingFileHandler(WRITEPATH.'/logs/app.log',10);
+        $rotatingFileHandler->setFormatter($formatter);
+
+        $logger->pushHandler($rotatingFileHandler);
         return $logger;
     }
 }
