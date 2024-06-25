@@ -19,8 +19,8 @@
     <?php if (!empty($article)) : ?>
 
     <!--  title  -->
-    <h2 class="text-4xl font-extrabold dark:text-white mt-3"
-    ><?= $article['title'] ?></h2>
+    <h1 class="text-4xl font-extrabold dark:text-white mt-3"
+    ><?= $article['title'] ?></h1>
 
     <div class="my-2">
 
@@ -75,7 +75,9 @@
 <script>
     var figure = document.querySelector('figure');
 
-    figure.className += ' flex justify-center items-center';
+    if(figure != null){
+        figure.className += ' flex justify-center items-center';
+    }
 </script>
 <script>
     document.addEventListener('DOMContentLoaded', function() {
