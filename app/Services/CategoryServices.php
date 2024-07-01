@@ -36,7 +36,9 @@ class CategoryServices
             throw new DataNotFoundExceptions('data record category empty');
         }
 
-        return $this->categoryModel->asArray()->findAll();
+        return $this->categoryModel
+            ->join('article','category.id = article.category_id','right')
+            ->asArray()->findAll();
     }
 
     public function countCategory()
