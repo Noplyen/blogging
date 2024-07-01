@@ -125,9 +125,11 @@ class CategoryServices
     {
         try{
             // is data exist, if not get error exception
-            $this->getById($idCategory);
+            $result = $this->getById($idCategory);
 
             $this->categoryModel->delete($idCategory);
+
+            $this->myLogger->info('success delete category',['name-category'=>$result['name']]);
 
         }catch (DatabaseException $exception){
 
@@ -161,9 +163,15 @@ class CategoryServices
     {
         try{
             // is data exist, if not get error exception
-            $this->getById($idCategory);
+            $result = $this->getById($idCategory);
 
             $this->categoryModel->update($idCategory,$category);
+
+            $this->myLogger->info('success update category',
+                [
+                    'new-category'=>$category->name,
+                    'old-category'=>$result['name']
+                ]);
 
         }catch (\ReflectionException $exception) {
 

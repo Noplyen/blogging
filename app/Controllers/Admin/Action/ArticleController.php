@@ -58,6 +58,12 @@ class ArticleController extends BaseController
             // insert detail article
             $this->detailArticleServices->createDetailArticle($detailArticle);
 
+            $this->myLogger->info('success create article',
+                [
+                    'userid'=>$sesionLogin['user_id'],
+                    'article-title'=>$articleReq->title
+                ]);
+
             return redirect()
                 ->to(base_url('admin/articles/preview/'.$result->id));
 
@@ -123,6 +129,8 @@ class ArticleController extends BaseController
         try{
 
             $this->articleServices->updateArticle($idArticle,$articleReq);
+
+            $this->myLogger->info('success update article',['id-article'=>$idArticle]);
 
             return redirect()
                 ->to(base_url()."admin/articles/preview/".$idArticle);

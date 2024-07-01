@@ -61,6 +61,8 @@ class MediaSocialServices
                 ->where('link',$link)
                 ->delete($id);
 
+            $this->myLogger->info('success delete user social media');
+
         }catch (DatabaseException $exception){
             throw new FailedDeleteDataExceptions('failed to delete data media social user',$exception);
         }
