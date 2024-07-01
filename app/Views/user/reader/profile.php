@@ -1,7 +1,7 @@
 <?= $this->extend('layout/reader/reader') ?>
 
 <?= $this->section('title') ?>
-<?php echo getenv('websiteName').'-profile'?>
+<?php echo getenv('websiteName').' | profile'?>
 <?= $this->endSection('title') ?>
 
 
