@@ -10,7 +10,7 @@
 <?php if (!empty($article)) : ?>
 
     <div class="read-container">
-        <span class="title">TUtorial Bahasa pemrograman Java part 1</span>
+        <span class="title"><?= $article['title'] ?></span>
 
         <div class="read-author">
             <img class="image-author"
