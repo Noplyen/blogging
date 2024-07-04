@@ -1,59 +1,37 @@
 <?= $this->extend('layout/reader/reader') ?>
 
 <?= $this->section('title') ?>
-<?php if (!empty($article)) : ?>
-    <?= (!empty($article['title'])?$article['title']:" ")?>
-<?php endif;?>
+<?php echo getenv('websiteName')?>
 <?= $this->endSection('title') ?>
-
 
 <?= $this->section('content') ?>
 
-<!--DIV DIBAWAH INI MERUPAKAN ATURAN UNTUK CONTAINER VIEW-->
-<!--ini karena template read article dan home sama -->
-<!-- lalu ukuran agar berbeda maka div ini ada di setiap section content -->
-<div class="mx-auto max-w-6xl px-6 lg:px-8">
 
-<div class="md:container md:mx-auto md:my-5">
+<?php if (!empty($article)) : ?>
 
-    <?php if (!empty($article)) : ?>
+    <div class="read-container">
+        <span class="title">TUtorial Bahasa pemrograman Java part 1</span>
 
-    <!--  title  -->
-    <h1 class="text-4xl font-extrabold dark:text-white mt-3"
-    ><?= $article['title'] ?></h1>
+        <div class="read-author">
+            <img class="image-author"
+                 src="<?= $article['url_picture'] ?>" alt="author">
+            <div class="detail">
+                <span class="author-name"><?= $article['user_name'] ?></span>
+                <span class="date"><?= $article['date_create'] ?></span>
+            </div>
+        </div>
 
-    <div class="my-2">
+        <hr>
 
-        <!--  author  -->
-        <a href="#" >
-            <span class="font-medium text-gray-500">
-                <span>author : </span>
-                <span><?= $article['user_name'] ?></span>
+        <div class="read-content">
+            <span>
+                <?= $article['content'] ?>
             </span>
-        </a>
-        <br>
+        </div>
 
-        <!--  category  -->
-        <a href="#">
-            <span class="font-medium text-gray-500">
-                <span>category : </span>
-                <span><?= $article['category_name'] ?></span>
-            </span>
-        </a>
     </div>
-    <hr>
 
-    <!--  content  -->
-    <section class="my-4">
-        <span class="font-normal overscroll-x-auto">
-            <?= $article['content'] ?>
-        </span>
-    </section>
-
-    <?php endif;?>
-
-</div>
-</div>
+<?php endif;?>
 
 <?php if (!empty($article)){
     $metaDescription    =   $article['meta_description'];
@@ -71,23 +49,5 @@
         </script>
      script;
 } ?>
-
-<script>
-    var figure = document.querySelector('figure');
-
-    if(figure != null){
-        figure.className += ' flex justify-center items-center';
-    }
-</script>
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        let images = document.querySelectorAll('p > a');
-
-        images.forEach(image => {
-            image.className += 'text-blue-600 dark:text-blue-500 hover:underline';
-
-        });
-    });
-</script>
 
 <?= $this->endSection('content') ?>

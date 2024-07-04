@@ -1,0 +1,14 @@
+footer{
+    background-color: #427aa1;
+    color: white;
+    border: 1px solid;
+    position: absolute;
+    bottom: 0;
+    width: 100vw;
+    min-height: 2em;
+}
+
+.footer-website-name{
+    padding-top: 10px;
+    text-align: center;
+}

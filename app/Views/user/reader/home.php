@@ -1,99 +1,54 @@
 <?= $this->extend('layout/reader/reader') ?>
 
-<?= $this->section('text-slate') ?>
-
-<!--DIV DIBAWAH INI MERUPAKAN ATURAN UNTUK CONTAINER VIEW-->
-<!--ini karena template read article dan home sama -->
-<!-- lalu ukuran agar berbeda maka div ini ada di setiap section content -->
-<div class="mx-auto max-w-7xl px-6 lg:px-8">
-
-<div class="mx-auto max-w-2xl lg:mx-0 py-3">
-    <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl"
-    >Writely-Blog</h2>
-    <p class="mt-2 text-lg leading-8 text-gray-600"
-    >Berbagi pengetahuan dari sejarah pembelajaran</p>
-</div>
-</div>
-<?= $this->endSection('text-slate') ?>
-
-
 <?= $this->section('title') ?>
 <?php echo getenv('websiteName')?>
 <?= $this->endSection('title') ?>
 
-
 <?= $this->section('content') ?>
-<!--DIV DIBAWAH INI MERUPAKAN ATURAN UNTUK CONTAINER VIEW-->
-<!--ini karena template read article dan home sama -->
-<!-- lalu ukuran agar berbeda maka div ini ada di setiap section content -->
-<div class="mx-auto min-h-screen max-w-7xl px-6 lg:px-8">
 
-<div class="mx-auto mt-10 grid
-            max-w-2xl grid-cols-1
-            gap-x-8 gap-y-16 border-t
-            border-gray-200 pt-10
-            sm:mt-5 sm:pt-5 lg:mx-0
-            lg:max-w-none lg:grid-cols-3">
+    <div class="parent-container-card">
 
-    <?php if(!empty($list_article)) :?>
-    <?php foreach ($list_article as $artikel):?>
+        <div class="card-container">
 
-    <article class="flex max-w-xl flex-col items-start justify-between">
-        <div class="flex items-center gap-x-4 text-xs">
-
-            <!--  publish date  -->
-            <time class="text-gray-500"
-            ><?= $artikel['date_create'] ?></time>
-
-            <!--  category  -->
-            <a href="<?= base_url().'category/'.$artikel['category_name']?>" class="relative z-10 rounded-full bg-gray-50 px-3 py-1.5 font-medium text-gray-600 hover:bg-gray-100"
-            ><?= $artikel['category_name'] ?></a>
-
-        </div>
-        <div class="group relative">
-            <h3 class="mt-3 text-lg font-semibold leading-6 text-gray-900 group-hover:text-gray-600">
+            <?php if(!empty($list_article)) :?>
+                <?php foreach ($list_article as $artikel):?>
 
 
-                <!--  title  -->
-                <a href="<?= base_url()."post/".$artikel['slug'].'?more='.substr($artikel['article_id'],0,8)?>">
-                    <span class="absolute inset-0"></span>
-                    <?= $artikel['title'] ?>
-                </a>
+                    <div class="card">
 
-            </h3>
+                        <div class="card-top">
+                            <time><?= $artikel['date_create'] ?></time>
+                            <a href="<?= base_url('category/'.$artikel['category_name'])?>">
+                                <?= $artikel['category_name'] ?>
+                            </a>
+                        </div>
 
-            <!--  description  -->
-            <p class="mt-5 line-clamp-3 text-sm leading-6 text-gray-600"
-            ><?= $artikel['meta_description'] ?></p>
+                        <div class="card-bottom">
+                            <a href="<?= base_url("post/".$artikel['slug'].'?more='.substr($artikel['article_id'],0,8))?>">
+                                <?= $artikel['title'] ?>
+                            </a>
+                            <p>
+                                <?= $artikel['meta_description'] ?>
+                            </p>
+                        </div>
+                    </div>
+
+
+                <?php endforeach ;?>
+            <?php endif ;?>
 
         </div>
-        <div class="relative mt-8 flex items-center gap-x-4">
 
-<!--  author image  -->
-            <img src="<?= $artikel['url_picture'] ?>"
-                 alt=""
-                 class="h-10 w-10 rounded-full bg-gray-50">
-            <div class="text-sm leading-6">
-                <p class="font-semibold text-gray-900">
 
-<!--  author  -->
-                    <span>
-                        <span class="absolute inset-0"></span>
-                        <?= $artikel['user_name'] ?>
-                    </span>
+    </div>
 
-                </p>
-            </div>
-        </div>
-    </article>
+    <script>
+        var valueDescription = "Berbagi ilmu di catatan digital dari pengalaman belajar";
+        var valueTag = "writelyblog, em hadissi haslam, writelyblog.com, https://writelyblog.com";
+        var valueAuthor = "em hadissi haslam";
+        document.getElementById("meta-description-value").setAttribute("content", valueDescription);
+        document.getElementById("meta-tag-value").setAttribute("content",valueTag);
+        document.getElementById("meta-author-value").setAttribute("content",valueAuthor);
+    </script>
 
-        <?php endforeach ;?>
-    <?php endif ;?>
-
-    <!-- More posts... -->
-</div>
-    <?php if(!empty($pager)):?>
-        <?= $pager->links('default','custom') ?>
-    <?php endif;?>
-</div>
-<?= $this->endSection('content') ?>
+<?= $this->endSection('text-slate') ?>

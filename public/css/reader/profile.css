@@ -1,0 +1,155 @@
+.profile-container{
+    background-color: #427aa1;
+    height: fit-content;
+    padding-bottom: 2em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.profile-container img{
+    width: 50vw;
+}
+
+.profile-container .title{
+    color: white;
+    font-size: 2rem;
+    font-weight: 600;
+    font-style: normal;
+}
+
+.profile-container .slax{
+    text-align: start;
+    width: 70vw;
+    color: white;
+    margin-top: 5px;
+}
+
+.profile-text{
+    padding-left: 3rem;
+    padding-right: 3rem;
+}
+
+/*card*/
+.__author-tag{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+    font-weight: 500;
+    font-style: normal;
+}
+
+.__profile-author{
+    display: flex;
+    flex-direction: column;
+    min-height: 20vh;
+    margin: auto;
+    width: 90vw;
+    border-radius: 5px;
+    background-color: #EBF2FA;
+}
+
+.__profile-name{
+    text-align: center;
+}
+
+.__profile-author img{
+    align-self: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border: 1px solid;
+    border-radius: 10px;
+    width: 15vw;
+    height: 15vw;
+}
+
+.__detail-profile{
+    display: flex;
+    flex-direction: column;
+    width: 85vw;
+    margin: auto;
+    word-break: break-word;
+    text-align: justify;
+}
+
+.__profile-sosial{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    flex-wrap: wrap;
+}
+
+.__profile-sosial span{
+    background-color: white;
+    border: 1px solid;
+    border-radius: 7px;
+    padding: 2px 7px;
+}
+.__container-detail{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+@media (min-width: 786px)
+{
+    .profile-container{
+        display: flex;
+        flex-direction: row-reverse;
+        align-items: start;
+    }
+    .profile-text{
+        margin-top: auto;
+        margin-bottom: auto;
+    }
+
+/*    author card  */
+
+    .__profile-author{
+        display: flex;
+        gap: 10px;
+        flex-direction: row;
+        min-height: 20vh;
+        margin: auto;
+        width: 90vw;
+        border-radius: 5px;
+        background-color: #EBF2FA;
+    }
+
+    .__profile-author img{
+        align-self: start;
+        margin-top: 30px;
+        margin-left: 10px;
+        margin-bottom: 10px;
+        border: 1px solid;
+        border-radius: 10px;
+        width: 100px;
+        height: 100px;
+    }
+    .__detail-profile{
+        display: flex;
+        flex-direction: column;
+        width: 70vw;
+        margin: 0;
+        word-break: break-word;
+        text-align: justify;
+    }
+
+    .__container-detail{
+        display: flex;
+        flex-direction: column;
+        padding-top: 3rem;
+        justify-content: start;
+        align-items: start;
+        width: 50vw;
+    }
+
+    .__profile-name{
+        text-align: start;
+    }
+}
