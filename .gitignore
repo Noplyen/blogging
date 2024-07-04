@@ -10,6 +10,10 @@ HELP.md
 
 build
 !public/js/ck-editor5/build
+!public/images/resource/logo/*.png
+!public/images/resource/*.png
+!public/images/resource/logo/*.jpg
+!public/images/resource/*.jpg
 ### VS Code ###
 .vscode/
 
