@@ -42,6 +42,12 @@
 
     </div>
 
+
+    <?php if(!empty($pager)):?>
+        <?= $pager->links('default','custom') ?>
+    <?php endif;?>
+
+
     <script>
         var valueDescription = "Berbagi ilmu di catatan digital dari pengalaman belajar";
         var valueTag = "writelyblog, em hadissi haslam, writelyblog.com, https://writelyblog.com";
@@ -51,4 +57,4 @@
         document.getElementById("meta-author-value").setAttribute("content",valueAuthor);
     </script>
 
-<?= $this->endSection('text-slate') ?>
+<?= $this->endSection('content') ?>

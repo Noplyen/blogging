@@ -1,25 +1,23 @@
-<nav aria-label="Page navigation example" class="mt-4">
-    <ul class="inline-flex -space-x-px text-sm">
+<?php $pager->setSurroundCount(2) ?>
+
+<nav aria-label="Page navigation">
+    <ul class="pagination">
         <?php if ($pager->hasPrevious()) : ?>
-            <li>
-                <a href="<?= $pager->getFirst() ?>"
-                   aria-label="<?= lang('Pager.first') ?>"
-                   class="flex items-center justify-center px-3 h-8 ms-0 leading-tight text-gray-500 bg-white border border-e-0 border-gray-300 rounded-s-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
-                ><?= lang('Pager.first') ?></a>
+            <li class="page-item">
+                <a class="page-link" href="<?= $pager->getFirst() ?>" aria-label="<?= lang('Pager.first') ?>">
+                    <span aria-hidden="true"><?= lang('Pager.first') ?></span>
+                </a>
             </li>
-            <li>
-                <a href="<?= $pager->getPrevious() ?>"
-                   aria-label="<?= lang('Pager.previous') ?>"
-                   class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
-                ><?= lang('Pager.previous') ?></a>
+            <li class="page-item">
+                <a class="page-link" href="<?= $pager->getPrevious() ?>" aria-label="<?= lang('Pager.previous') ?>">
+                    <span aria-hidden="true"><?= lang('Pager.previous') ?></span>
+                </a>
             </li>
         <?php endif ?>
 
         <?php foreach ($pager->links() as $link): ?>
-            <li class="page-item <?= $link['active'] ? 'active' : '' ?>">
-                <a href="<?= $link['uri'] ?>"
-                   class="flex items-center justify-center px-3 h-8 leading-tight <?= $link['active'] ? 'text-white bg-blue-500 border-blue-500' : 'text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white' ?>"
-                >
+            <li class="page-item <?= $link['active'] ? 'active' : '' ?>" >
+                <a class="page-link" href="<?= $link['uri'] ?>">
                     <?= $link['title'] ?>
                 </a>
             </li>
@@ -27,19 +25,13 @@
 
         <?php if ($pager->hasNext()) : ?>
             <li class="page-item">
-                <a href="<?= $pager->getNext() ?>"
-                   aria-label="<?= lang('Pager.next') ?>"
-                   class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
-                >
-                    <?= lang('Pager.next') ?>
+                <a class="page-link" href="<?= $pager->getNext() ?>" aria-label="<?= lang('Pager.next') ?>">
+                    <span aria-hidden="true"><?= lang('Pager.next') ?></span>
                 </a>
             </li>
             <li class="page-item">
-                <a href="<?= $pager->getLast() ?>"
-                   aria-label="<?= lang('Pager.last') ?>"
-                   class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-s-0 border-gray-300 rounded-e-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
-                >
-                    <?= lang('Pager.last') ?>
+                <a class="page-link" href="<?= $pager->getLast() ?>" aria-label="<?= lang('Pager.last') ?>">
+                    <span aria-hidden="true"><?= lang('Pager.last') ?></span>
                 </a>
             </li>
         <?php endif ?>

@@ -11,6 +11,7 @@
 
     <title><?= $this->renderSection('title') ?></title>
     <link rel="stylesheet" href="<?= base_url('/css/reader/footer.css')?>" >
+    <link rel="stylesheet" href="<?= base_url('/css/reader/pagination.css')?>" >
     <link rel="stylesheet" href="<?= base_url('/css/reader/profile.css')?>" >
     <link rel="stylesheet" href="<?= base_url('/css/reader/read-article.css')?>" >
     <link rel="stylesheet" href="<?= base_url('/css/reader/main.css')?>" >
