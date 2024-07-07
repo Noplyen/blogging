@@ -8,6 +8,10 @@
     <meta name="description" id="meta-description-value" content="">
     <meta name="keywords" id="meta-tag-value" content="">
     <meta name="author" id="meta-author-value" content="">
+    <meta property="og:title" id="meta-title-value-og" content="" />
+    <meta property="og:type" content="blog" />
+    <meta property="og:url" id="meta-url-value-og" content="" />
+    <meta property="og:description" id="meta-description-value-og" content="" />
 
     <title><?= $this->renderSection('title') ?></title>
     <link rel="stylesheet" href="<?= base_url('/css/reader/footer.css')?>" >

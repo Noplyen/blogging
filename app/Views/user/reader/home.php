@@ -50,9 +50,14 @@
 
     <script>
         var valueDescription = "Berbagi ilmu di catatan digital dari pengalaman belajar";
+        var title = "<?php echo getenv('websiteName')?>";
+        var siteUrl = "<?php echo base_url()?>";
         var valueTag = "writelyblog, em hadissi haslam, writelyblog.com, https://writelyblog.com";
         var valueAuthor = "em hadissi haslam";
         document.getElementById("meta-description-value").setAttribute("content", valueDescription);
+        document.getElementById("meta-description-value-og").setAttribute("content", valueDescription);
+        document.getElementById("meta-title-value-og").setAttribute("content",title );
+        document.getElementById("meta-url-value-og").setAttribute("content", siteUrl);
         document.getElementById("meta-tag-value").setAttribute("content",valueTag);
         document.getElementById("meta-author-value").setAttribute("content",valueAuthor);
     </script>

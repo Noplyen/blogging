@@ -54,4 +54,19 @@
     <?php endforeach ;?>
 <?php endif ;?>
 
+
+<script>
+    var valueDescription = "writelyblog author";
+    var title = "<?php echo getenv('websiteName')?>";
+    var siteUrl = "<?php echo base_url('profile')?>";
+    var valueTag = "writelyblog, writelyblog.com, https://writelyblog.com, https://writelyblog.com/profile";
+    var valueAuthor = "<?= $user['name'] ?>";
+    document.getElementById("meta-description-value").setAttribute("content", valueDescription);
+    document.getElementById("meta-description-value-og").setAttribute("content", valueDescription);
+    document.getElementById("meta-title-value-og").setAttribute("content",title );
+    document.getElementById("meta-url-value-og").setAttribute("content", siteUrl);
+    document.getElementById("meta-tag-value").setAttribute("content",valueTag);
+    document.getElementById("meta-author-value").setAttribute("content",valueAuthor);
+</script>
+
 <?= $this->endSection('content') ?>

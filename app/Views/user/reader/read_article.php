@@ -10,7 +10,7 @@
 <?php if (!empty($article)) : ?>
 
     <div class="read-container">
-        <span class="title"><?= $article['title'] ?></span>
+        <h1><span class="title"><?= $article['title'] ?></span></h1>
 
         <div class="read-author">
             <img class="image-author"
@@ -37,13 +37,21 @@
     $metaDescription    =   $article['meta_description'];
     $metaTag            =   $article['meta_tag'];
     $metaAuthor         =   $article['user_name'];
+    $url                =   base_url(uri_string().'?more='.request()->getGet('more'));
+    $title              =   uri_string();
 
     echo <<<script
         <script>
             var valueDescription = "{$metaDescription}";
             var valueTag = "{$metaTag}";
             var valueAuthor = "{$metaAuthor}";
+            var valueUrl = "{$url}";
+            var valueTitle = "{$title}";
+            
             document.getElementById("meta-description-value").setAttribute("content", valueDescription);
+            document.getElementById("meta-url-value-og").setAttribute("content", valueUrl);
+            document.getElementById("meta-description-value-og").setAttribute("content", valueDescription);
+            document.getElementById("meta-title-value-og").setAttribute("content", valueTitle);
             document.getElementById("meta-tag-value").setAttribute("content",valueTag);
             document.getElementById("meta-author-value").setAttribute("content",valueAuthor);
         </script>

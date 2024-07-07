@@ -9,6 +9,13 @@ footer{
 }
 
 .footer-website-name{
-    padding-top: 10px;
     text-align: center;
 }
+
+.footer-map ul{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    column-gap: 10px;
+}
+
